@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@200;300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #050505;
+  color: #e5e5e5;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8a7350;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C6A87C;
+}
+
+/* Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #C6A87C, #FBF5E6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ---------------------------------------------------- */
+/* ---------------------------------------------------- */
+/* FINAL POLISHED COSMIC DRAGON SYSTEM                  */
+/* ---------------------------------------------------- */
+
+/* 1. Full Screen Rotating Spiral Container */
+.cosmos-spiral-container-fullscreen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Size significantly larger than viewport to ensure corners are covered during rotation */
+  width: 150vmax;
+  height: 150vmax;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  /* Mask center hole for head - smoother gradient */
+  -webkit-mask-image: radial-gradient(circle at center, transparent 10%, black 35%);
+  mask-image: radial-gradient(circle at center, transparent 10%, black 35%);
+}
+
+.cosmos-spiral-texture-fullscreen {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  animation: spiral-rotate 120s linear infinite;
+  will-change: transform;
+}
+
+@keyframes spiral-rotate {
+  from {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: rotate(-360deg) translate3d(0, 0, 0);
+  }
+}
+
+/* 2. Clean Dragon Head - CSS Masked & Centered */
+.dragon-head-clean-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  transform: translate3d(-50%, -50%, 0);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 10;
+
+  /* AGGRESSIVE MASKING: Tighter gradient to crop out smoke/noise */
+  -webkit-mask-image: radial-gradient(circle at center, black 45%, transparent 65%);
+  mask-image: radial-gradient(circle at center, black 45%, transparent 65%);
+
+  animation: head-breathe-clean 8s ease-in-out infinite;
+  /* Reduced blur radius for performance optimization */
+  filter: drop-shadow(0 0 25px rgba(157, 78, 221, 0.4)) contrast(1.2);
+  will-change: filter, transform;
+}
+
+/* EYE BLINK LAYERS - Integrated Bioluminesence Dimming */
+.eye-blink-left,
+.eye-blink-right {
+  position: absolute;
+  /* Soft, dark gradient to simulate light extinguishing */
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 40%, transparent 80%);
+  width: 14%;
+  height: 9%;
+  /* Restored slightly tighter height */
+  opacity: 0;
+  border-radius: 50%;
+  filter: blur(8px);
+  z-index: 15;
+  animation: eye-blink-only 3.5s infinite;
+  mix-blend-mode: multiply;
+  will-change: opacity, transform;
+}
+
+.eye-blink-left {
+  top: 44%;
+  left: 30%;
+  transform: rotate(-10deg);
+}
+
+.eye-blink-right {
+  top: 44%;
+  right: 30%;
+  transform: rotate(10deg);
+}
+
+@keyframes eye-blink-only {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.5);
+  }
+
+  /* Quick Blink */
+  45% {
+    opacity: 0;
+    transform: scaleY(0.5);
+  }
+
+  46% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  /* Close */
+  48% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  50% {
+    opacity: 0;
+    transform: scaleY(0.5);
+  }
+
+  /* Open */
+
+  100% {
+    opacity: 0;
+    transform: scaleY(0.5);
+  }
+}
+
+@keyframes head-breathe-clean {
+
+  0%,
+  100% {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+    filter: brightness(1.1) contrast(1.3) drop-shadow(0 0 25px rgba(157, 78, 221, 0.4));
+  }
+
+  50% {
+    transform: translate3d(-50%, -50%, 0) scale(1.05);
+    filter: brightness(1.2) contrast(1.4) drop-shadow(0 0 40px rgba(199, 125, 255, 0.6));
+  }
+}
+
+
+/* 3. Soft Vignette */
+.vignette-overlay-soft {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 50%, rgba(5, 5, 5, 0.9) 100%);
+  z-index: 20;
+  pointer-events: none;
+}
