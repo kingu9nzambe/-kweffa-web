@@ -68,7 +68,7 @@ const Hero = () => {
                     transition={{ delay: 1.2, duration: 1 }}
                     className="mt-12 flex flex-col items-center gap-8"
                 >
-                    <p className="max-w-xl text-gray-400 font-light text-lg md:text-xl tracking-wide leading-relaxed">
+                    <p className="max-w-xl text-gray-200 font-light text-lg md:text-xl tracking-wide leading-relaxed">
                         Where the map older than time is revealed.<br />
                         <span className="text-white drop-shadow-glow-gold">Custodians of the Bantu Truth.</span>
                     </p>

@@ -90,7 +90,7 @@ const ProductCard = ({ product, index, addToCart }) => (
                     {product.icon}
                 </div>
 
-                <div className="text-xs font-bold tracking-[0.3em] text-white/40 mb-2 uppercase break-words w-full">
+                <div className="text-xs font-bold tracking-[0.3em] text-regime-gold/70 mb-2 uppercase break-words w-full">
                     {product.line}
                 </div>
 
@@ -98,7 +98,7 @@ const ProductCard = ({ product, index, addToCart }) => (
                     {product.name}
                 </h3>
 
-                <p className="text-white/60 mb-8 font-light text-sm leading-relaxed flex-grow">
+                <p className="text-white/80 mb-8 font-light text-sm leading-relaxed flex-grow">
                     {product.description}
                 </p>
 
@@ -141,7 +141,7 @@ const ProductsPage = () => {
                     <h1 className="text-6xl md:text-8xl font-black font-cinzel tracking-tighter mb-6">
                         ARTIFACTS
                     </h1>
-                    <p className="max-w-2xl mx-auto text-white/50 text-lg font-light leading-relaxed">
+                    <p className="max-w-2xl mx-auto text-white/80 text-lg font-light leading-relaxed">
                         Tools for ritual, healing, and command.
                     </p>
                 </motion.div>
@@ -181,7 +181,7 @@ const ProductsPage = () => {
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="text-center mt-32 text-white/20 text-xs tracking-widest uppercase"
+                className="text-center mt-32 text-white/40 text-xs tracking-widest uppercase"
             >
                 Handcrafted in Limited Batches within the Regime
             </motion.div>

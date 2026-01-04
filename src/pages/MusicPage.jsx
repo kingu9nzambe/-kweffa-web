@@ -25,121 +25,150 @@ const MusicPage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-void-black text-white pb-32">
+        <div className="min-h-screen bg-void-black text-white pb-32 selection:bg-regime-gold selection:text-black">
             {/* Hero */}
             <div className="relative pt-32 pb-20 px-6 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-spirit-purple/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-spirit-purple/20 to-transparent pointer-events-none"></div>
                 <div className="container mx-auto relative z-10 text-center">
                     <motion.h1
-                        className="text-5xl md:text-7xl font-cinzel text-white mb-6"
+                        className="text-6xl md:text-9xl font-black font-cinzel text-white mb-6 tracking-tighter"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                     >
-                        The <span className="text-regime-gold">Vault</span>
+                        THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-regime-gold to-yellow-200">VAULT</span>
                     </motion.h1>
                     <motion.p
-                        className="text-xl text-gray-400 max-w-2xl mx-auto"
+                        className="text-xl text-gray-200 max-w-2xl mx-auto font-light tracking-widest uppercase"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3 }}
                     >
-                        Sacred transmissions • Spiritual chants • Ancestral rhythms
+                        Sacred Transmissions • Archive 001
                     </motion.p>
                 </div>
             </div>
 
             {/* Albums */}
-            <div className="container mx-auto px-6 mb-20">
-                <h2 className="text-3xl font-cinzel mb-8">Collections</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="container mx-auto px-6 mb-32">
+                <div className="flex items-center gap-4 mb-12">
+                    <h2 className="text-xs font-bold font-mono text-regime-gold uppercase tracking-[0.3em]">Collections</h2>
+                    <div className="h-px bg-regime-gold/20 flex-grow"></div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                     {albums.map((album, index) => (
                         <motion.div
                             key={album.id}
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
-                            className="group relative bg-white/5 border border-white/10 hover:border-regime-gold rounded-lg overflow-hidden hover:-translate-y-2 transition-all duration-500"
+                            className="group relative"
                         >
-                            <div className="aspect-square bg-gradient-to-br from-spirit-purple to-leaf-green relative overflow-hidden">
+                            <div className="aspect-square relative overflow-hidden rounded-sm mb-6 shadow-2xl">
                                 {album.coverArt ? (
-                                    <img src={album.coverArt} alt={album.title} className="w-full h-full object-cover" />
+                                    <img src={album.coverArt} alt={album.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                                 ) : (
-                                    <div className="w-full h-full flex items-center justify-center text-6xl">🐲</div>
+                                    <div className="w-full h-full bg-white/5 flex items-center justify-center">
+                                        <div className="text-8xl opacity-20">💿</div>
+                                    </div>
                                 )}
-                                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+
+                                {/* Overlay & Play */}
+                                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
                                     <button
                                         onClick={() => handlePlayTrack(album.tracks[0])}
-                                        className="w-16 h-16 rounded-full bg-regime-gold text-black flex items-center justify-center hover:scale-110 transition-transform"
+                                        className="w-20 h-20 rounded-full border border-regime-gold text-regime-gold hover:bg-regime-gold hover:text-black flex items-center justify-center transition-all duration-300 transform scale-90 group-hover:scale-100"
                                     >
-                                        <Play size={24} fill="currentColor" />
+                                        <Play size={32} fill="currentColor" />
                                     </button>
                                 </div>
                             </div>
-                            <div className="p-6">
-                                <h3 className="text-xl font-cinzel mb-2 group-hover:text-regime-gold transition-colors">
+
+                            <div>
+                                <h3 className="text-2xl font-cinzel text-white group-hover:text-regime-gold transition-colors duration-300">
                                     {album.title}
                                 </h3>
-                                <p className="text-sm text-gray-400">{album.artist}</p>
-                                <p className="text-xs text-gray-500 mt-2">{album.tracks.length} tracks</p>
+                                <p className="text-gray-400 text-sm tracking-wide mt-1">{album.artist} • {new Date().getFullYear()}</p>
                             </div>
                         </motion.div>
                     ))}
                 </div>
             </div>
 
-            {/* All Tracks */}
+            {/* All Tracks - Premium Table */}
             <div className="container mx-auto px-6">
-                <h2 className="text-3xl font-cinzel mb-8">All Transmissions</h2>
-                <div className="space-y-2">
-                    {allTracks.map((track, index) => (
-                        <motion.div
-                            key={track.id}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.05 }}
-                            className={`flex items-center justify-between p-4 rounded-lg transition-all duration-300 ${currentTrack?.id === track.id
-                                    ? 'bg-regime-gold/20 border border-regime-gold'
-                                    : 'bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20'
-                                }`}
-                        >
-                            <div className="flex items-center gap-4 flex-1">
-                                <button
-                                    onClick={() => handlePlayTrack(track)}
-                                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${currentTrack?.id === track.id && isPlaying
-                                            ? 'bg-regime-gold text-black'
-                                            : 'bg-white/10 text-white hover:bg-regime-gold hover:text-black'
-                                        }`}
-                                >
-                                    <Play size={16} fill={currentTrack?.id === track.id && isPlaying ? "currentColor" : "none"} />
-                                </button>
+                <div className="flex items-center gap-4 mb-12">
+                    <h2 className="text-xs font-bold font-mono text-regime-gold uppercase tracking-[0.3em]">Master Archive</h2>
+                    <div className="h-px bg-regime-gold/20 flex-grow"></div>
+                </div>
 
-                                <div className="flex-1">
-                                    <h4 className={`font-medium ${currentTrack?.id === track.id ? 'text-regime-gold' : 'text-white'}`}>
-                                        {track.title}
-                                    </h4>
-                                    <p className="text-sm text-gray-400">{track.albumTitle}</p>
+                <div className="bg-white/5 rounded-2xl overflow-hidden border border-white/5">
+                    {/* Header Row */}
+                    <div className="grid grid-cols-[auto_1fr_1fr_auto] gap-4 p-6 border-b border-white/5 text-xs font-bold text-gray-500 uppercase tracking-widest hidden md:grid">
+                        <div className="w-12 text-center">#</div>
+                        <div>Title</div>
+                        <div>Album</div>
+                        <div className="text-right">Time</div>
+                    </div>
+
+                    <div className="divide-y divide-white/5">
+                        {allTracks.map((track, index) => (
+                            <motion.div
+                                key={track.id}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.05 }}
+                                className={`group grid grid-cols-[auto_1fr_auto] md:grid-cols-[auto_1fr_1fr_auto] gap-4 p-4 md:p-6 items-center hover:bg-white/5 transition-colors duration-300 cursor-pointer ${currentTrack?.id === track.id ? 'bg-regime-gold/10' : ''
+                                    }`}
+                                onClick={() => handlePlayTrack(track)}
+                            >
+                                {/* Play/Index */}
+                                <div className="w-12 flex justify-center">
+                                    <span className="text-gray-500 text-sm font-mono group-hover:hidden">
+                                        {(index + 1).toString().padStart(2, '0')}
+                                    </span>
+                                    <button className="hidden group-hover:flex text-regime-gold">
+                                        <Play size={16} fill="currentColor" />
+                                    </button>
                                 </div>
 
-                                <span className="text-sm font-mono text-gray-500">
+                                {/* Title */}
+                                <div>
+                                    <h4 className={`font-medium text-lg ${currentTrack?.id === track.id ? 'text-regime-gold' : 'text-white group-hover:text-regime-gold'} transition-colors`}>
+                                        {track.title}
+                                    </h4>
+                                    <span className="md:hidden text-xs text-gray-500">{track.albumTitle}</span>
+                                </div>
+
+                                {/* Album (Desktop) */}
+                                <div className="hidden md:block text-gray-400 font-light text-sm">
+                                    {track.albumTitle}
+                                </div>
+
+                                {/* Duration */}
+                                <div className="text-right font-mono text-xs text-gray-500">
                                     {Math.floor(track.duration / 60)}:{(track.duration % 60).toString().padStart(2, '0')}
-                                </span>
-                            </div>
-                        </motion.div>
-                    ))}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </div>
 
             {/* Support Notice */}
-            <div className="container mx-auto px-6 mt-20">
-                <div className="bg-gradient-to-br from-spirit-purple/30 to-leaf-green/20 border border-regime-gold/30 rounded-lg p-12 text-center">
-                    <h3 className="text-3xl font-cinzel mb-4">Support The Work</h3>
-                    <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-                        All music is available for streaming. If these transmissions resonate with you,
-                        consider supporting through a name-your-price contribution.
-                    </p>
-                    <button className="px-10 py-4 bg-regime-gold text-black hover:bg-white transition-all duration-300 font-bold tracking-widest uppercase text-sm">
-                        Contribute
-                    </button>
+            <div className="container mx-auto px-6 mt-32">
+                <div className="max-w-3xl mx-auto text-center border border-white/10 p-12 rounded-lg relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-regime-gold/10 via-transparent to-regime-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                    <div className="relative z-10">
+                        <h3 className="text-3xl font-cinzel mb-4 text-white">Support The Regime</h3>
+                        <p className="text-gray-300 mb-8 font-light">
+                            All transmissions are free. Contributions fuel the expansion of the Ngombongola map.
+                        </p>
+                        <button className="px-10 py-3 bg-white text-black font-bold tracking-[0.2em] uppercase text-xs hover:bg-regime-gold transition-colors duration-300">
+                            Contribute Fund
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

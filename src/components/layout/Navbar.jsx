@@ -28,8 +28,8 @@ const Navbar = () => {
     return (
         <nav
             className={`fixed w-full z-50 transition-all duration-700 ease-out border-b ${scrolled
-                    ? 'bg-glass-black/80 backdrop-blur-xl py-3 border-white/5 shadow-glass'
-                    : 'bg-transparent py-6 border-transparent'
+                ? 'bg-glass-black/80 backdrop-blur-xl py-3 border-white/5 shadow-glass'
+                : 'bg-transparent py-6 border-transparent'
                 }`}
         >
             <div className="container mx-auto px-6 flex justify-between items-center">
@@ -53,7 +53,7 @@ const Navbar = () => {
                             to={link.path}
                             className="relative group"
                         >
-                            <span className={`text-xs font-medium tracking-widest uppercase transition-colors duration-300 ${location.pathname === link.path ? 'text-regime-gold' : 'text-white/70 group-hover:text-white'
+                            <span className={`text-xs font-bold tracking-widest uppercase transition-colors duration-300 ${location.pathname === link.path ? 'text-regime-gold' : 'text-white/90 group-hover:text-white'
                                 }`}>
                                 {link.name}
                             </span>

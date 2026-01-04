@@ -76,7 +76,7 @@ const Philosophy = () => {
                                     {principle.title}
                                 </motion.h3>
                                 <motion.p
-                                    className="text-lg md:text-2xl text-gray-400 font-light leading-relaxed max-w-2xl"
+                                    className="text-lg md:text-2xl text-gray-200 font-light leading-relaxed max-w-2xl"
                                 >
                                     {principle.desc}
                                 </motion.p>

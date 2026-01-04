@@ -59,7 +59,7 @@ const Media = () => {
                     <h2 className="text-4xl md:text-7xl font-bold font-cinzel mb-6 text-white">
                         Media & <span className="text-regime-gold">Content</span>
                     </h2>
-                    <p className="text-xl text-gray-400 font-light max-w-2xl">
+                    <p className="text-xl text-gray-200 font-light max-w-2xl">
                         Explore the teachings, philosophy, and creative expressions from the Regime.
                     </p>
                 </motion.div>
@@ -80,7 +80,7 @@ const Media = () => {
                         <h3 className="text-3xl md:text-5xl font-bold font-cinzel mb-4 text-white">
                             Bantu Kindoki <span className="text-regime-gold text-2xl block md:inline md:text-4xl font-light font-cormorant">(Original Sound)</span>
                         </h3>
-                        <p className="text-gray-400 mb-8 text-lg font-light tracking-wide">
+                        <p className="text-gray-200 mb-8 text-lg font-light tracking-wide">
                             Original Sound - Kweffa3
                         </p>
 
@@ -146,10 +146,10 @@ const Media = () => {
                                 <h4 className={`font-bold font-cinzel leading-tight mb-2 text-white group-hover:text-regime-gold transition-colors ${idx === 0 ? 'text-3xl' : 'text-xl'}`}>
                                     {video.title}
                                 </h4>
-                                <p className="text-sm text-gray-400 mb-3 line-clamp-2 font-light">
+                                <p className="text-sm text-gray-300 mb-3 line-clamp-2 font-light">
                                     {video.caption}
                                 </p>
-                                <div className="flex gap-4 text-xs text-gray-500 items-center">
+                                <div className="flex gap-4 text-xs text-gray-400 items-center">
                                     <span>{video.views} views</span>
                                     <ExternalLink size={12} />
                                 </div>
@@ -176,7 +176,7 @@ const Media = () => {
                     <h3 className="text-3xl font-cinzel font-bold mb-4 text-white">
                         Follow the Movement
                     </h3>
-                    <p className="text-gray-400 mb-8 max-w-lg mx-auto">
+                    <p className="text-gray-200 mb-8 max-w-lg mx-auto">
                         Join @kweffa3 on TikTok for daily teachings and content
                     </p>
                     <motion.a
