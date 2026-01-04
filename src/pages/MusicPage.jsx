@@ -148,7 +148,7 @@ const MusicPage = () => {
 
                                 {/* Duration */}
                                 <div className="text-right font-mono text-xs text-gray-500">
-                                    {Math.floor(track.duration / 60)}:{(track.duration % 60).toString().padStart(2, '0')}
+                                    {track.duration}
                                 </div>
                             </motion.div>
                         ))}
