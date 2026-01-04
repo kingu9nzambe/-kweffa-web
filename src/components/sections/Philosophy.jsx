@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
 
 const Philosophy = () => {
     const sectionRef = useRef(null);
@@ -38,93 +37,46 @@ const Philosophy = () => {
         <section
             ref={sectionRef}
             id="philosophy"
-            style={{
-                minHeight: '200vh',
-                padding: '120px 0',
-                position: 'relative',
-                background: 'linear-gradient(180deg, var(--bg-void) 0%, var(--bg-deep) 50%, var(--bg-void) 100%)'
-            }}
+            className="min-h-[150vh] py-32 relative overflow-hidden bg-void-black"
         >
-            <div className="container">
+            {/* Background Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-b from-void-black via-deep-space to-void-black pointer-events-none" />
+
+            <div className="container mx-auto px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    style={{
-                        textAlign: 'center',
-                        marginBottom: '100px',
-                        position: 'sticky',
-                        top: '100px'
-                    }}
+                    className="text-center mb-32 sticky top-32"
                 >
-                    <h2 style={{
-                        fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-                        marginBottom: '30px',
-                        fontWeight: 900,
-                        letterSpacing: '-0.02em'
-                    }}>
-                        Our Philosophy
+                    <h2 className="text-5xl md:text-7xl font-cinzel font-black tracking-tighter mb-8 text-white">
+                        Our <span className="text-regime-gold">Philosophy</span>
                     </h2>
-                    <div style={{
-                        width: '80px',
-                        height: '2px',
-                        background: 'var(--accent-gold)',
-                        margin: '0 auto'
-                    }}></div>
+                    <div className="w-24 h-[2px] bg-regime-gold mx-auto shadow-[0_0_15px_rgba(198,168,124,0.5)]" />
                 </motion.div>
 
-                <div style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '200px',
-                    marginTop: '150px'
-                }}>
+                <div className="flex flex-col gap-40 mt-32">
                     {principles.map((principle, idx) => (
                         <motion.div
                             key={idx}
-                            style={{
-                                opacity: principle.opacity,
-                                padding: '60px 0',
-                                borderLeft: '1px solid rgba(139, 92, 246, 0.2)'
-                            }}
+                            style={{ opacity: principle.opacity }}
+                            className="py-12 border-l border-spirit-purple/20 pl-8 md:pl-16 max-w-4xl mx-auto w-full transition-all duration-500"
                         >
-                            <div style={{
-                                maxWidth: '900px',
-                                marginLeft: idx % 2 === 0 ? '60px' : 'auto',
-                                marginRight: idx % 2 === 0 ? 'auto' : '60px'
-                            }}>
+                            <div className={`flex flex-col ${idx % 2 === 0 ? 'md:items-start' : 'md:items-end'} text-left md:text-left`}>
                                 <motion.div
-                                    style={{
-                                        fontSize: '1rem',
-                                        color: 'var(--accent-purple)',
-                                        marginBottom: '20px',
-                                        fontFamily: 'var(--font-body)',
-                                        fontWeight: 600,
-                                        letterSpacing: '4px'
-                                    }}
+                                    className="text-sm font-mono text-regime-gold mb-6 tracking-[0.3em] font-bold"
                                 >
                                     {principle.number}
                                 </motion.div>
                                 <motion.h3
-                                    style={{
-                                        fontSize: 'clamp(2rem, 5vw, 4rem)',
-                                        marginBottom: '30px',
-                                        fontWeight: 900,
-                                        background: 'linear-gradient(90deg, #ffffff 0%, var(--accent-mystical) 100%)',
-                                        WebkitBackgroundClip: 'text',
-                                        WebkitTextFillColor: 'transparent'
-                                    }}
+                                    className={`text-4xl md:text-6xl font-black font-cinzel mb-8 text-transparent bg-clip-text bg-gradient-to-r ${idx % 2 === 0 ? 'from-white to-gray-500' : 'from-gray-500 to-white'
+                                        }`}
                                 >
                                     {principle.title}
                                 </motion.h3>
                                 <motion.p
-                                    style={{
-                                        fontSize: 'clamp(1rem, 2vw, 1.3rem)',
-                                        color: 'var(--text-muted)',
-                                        lineHeight: 1.8,
-                                        fontWeight: 300
-                                    }}
+                                    className="text-lg md:text-2xl text-gray-400 font-light leading-relaxed max-w-2xl"
                                 >
                                     {principle.desc}
                                 </motion.p>

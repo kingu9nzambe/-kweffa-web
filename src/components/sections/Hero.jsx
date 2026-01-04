@@ -22,42 +22,59 @@ const Hero = () => {
             {/* Main Content */}
             <motion.div
                 style={{ y: y1, opacity }}
-                className="relative z-20 text-center flex flex-col items-center px-4"
+                className="relative z-20 text-center flex flex-col items-center px-4 w-full max-w-7xl mx-auto"
             >
+                {/* Pre-title */}
                 <motion.div
-                    initial={{ opacity: 0, letterSpacing: "1em" }}
-                    animate={{ opacity: 1, letterSpacing: "0.2em" }}
-                    transition={{ duration: 2, ease: "easeOut" }}
+                    initial={{ opacity: 0, letterSpacing: "1em", y: -20 }}
+                    animate={{ opacity: 1, letterSpacing: "0.3em", y: 0 }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
                 >
-                    <h2 className="text-regime-gold uppercase tracking-[0.5em] text-sm md:text-xl mb-4 font-cinzel">
+                    <h2 className="text-regime-gold/80 uppercase tracking-[0.3em] text-xs md:text-sm mb-6 font-inter font-light">
                         The Ngyanuba Nation Presents
                     </h2>
                 </motion.div>
 
-                <motion.h1
-                    initial={{ y: 100, opacity: 0, filter: "blur(20px)" }}
-                    animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-                    transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
-                    className="text-6xl md:text-8xl lg:text-9xl font-bold font-cinzel text-white leading-none tracking-tighter mix-blend-difference"
-                >
-                    NGOMBONGOLA
-                    <br />
-                    <span className="text-stroke-gold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600 block mt-2">REGIME</span>
-                </motion.h1>
+                {/* Main Title - Massive Cinematic */}
+                <div className="relative">
+                    <motion.h1
+                        initial={{ scale: 0.9, opacity: 0, filter: "blur(20px)" }}
+                        animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+                        transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+                        className="text-6xl md:text-8xl lg:text-[10rem] font-bold font-cinzel text-white leading-[0.85] tracking-tighter"
+                    >
+                        <span className="block hover:text-transparent hover:bg-clip-text hover:bg-white/90 transition-all duration-500 cursor-default">
+                            NGOMBONGOLA
+                        </span>
+                    </motion.h1>
 
+                    {/* Subtitle / Second Line - Metallic Gold */}
+                    <motion.h1
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.6 }}
+                        className="text-5xl md:text-7xl lg:text-[8rem] font-bold font-cinzel leading-none tracking-tighter mt-2"
+                    >
+                        <span className="text-transparent bg-clip-text bg-gold-gradient animate-shimmer bg-[length:200%_auto]">
+                            REGIME
+                        </span>
+                    </motion.h1>
+                </div>
+
+                {/* Descriptive Text */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5, duration: 1 }}
-                    className="mt-12 flex flex-col items-center gap-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.2, duration: 1 }}
+                    className="mt-12 flex flex-col items-center gap-8"
                 >
-                    <p className="max-w-md text-gray-400 font-light text-lg tracking-wide">
-                        Where the map older than time is revealed.
-                        <br />
-                        <span className="text-regime-gold">Custodians of the Bantu Truth.</span>
+                    <p className="max-w-xl text-gray-400 font-light text-lg md:text-xl tracking-wide leading-relaxed">
+                        Where the map older than time is revealed.<br />
+                        <span className="text-white drop-shadow-glow-gold">Custodians of the Bantu Truth.</span>
                     </p>
 
-                    <div className="h-16 w-[1px] bg-gradient-to-b from-regime-gold to-transparent animate-pulse"></div>
+                    {/* Scroll Indicator Line */}
+                    <div className="h-24 w-[1px] bg-gradient-to-b from-regime-gold via-regime-gold/20 to-transparent animate-pulse-slow"></div>
                 </motion.div>
             </motion.div>
 

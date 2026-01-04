@@ -47,89 +47,47 @@ const Media = () => {
     ];
 
     return (
-        <section id="media" style={{
-            minHeight: '100vh',
-            padding: '120px 0',
-            background: 'var(--bg-void)',
-            position: 'relative'
-        }}>
-            <div className="container">
+        <section id="media" className="min-h-screen py-32 bg-void-black relative">
+            <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    style={{ marginBottom: '80px' }}
+                    className="mb-20 text-center md:text-left"
                 >
-                    <h2 style={{
-                        fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-                        marginBottom: '20px',
-                        fontWeight: 900
-                    }}>
-                        Media & Content
+                    <h2 className="text-4xl md:text-7xl font-bold font-cinzel mb-6 text-white">
+                        Media & <span className="text-regime-gold">Content</span>
                     </h2>
-                    <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', maxWidth: '600px' }}>
+                    <p className="text-xl text-gray-400 font-light max-w-2xl">
                         Explore the teachings, philosophy, and creative expressions from the Regime.
                     </p>
                 </motion.div>
 
                 {/* Featured Track */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                     viewport={{ once: true }}
-                    style={{
-                        background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(0,0,0,0.4) 100%)',
-                        border: '1px solid rgba(139, 92, 246, 0.2)',
-                        padding: '50px',
-                        marginBottom: '80px',
-                        display: 'grid',
-                        gridTemplateColumns: '200px 1fr',
-                        gap: '40px',
-                        alignItems: 'center'
-                    }}
+                    className="bg-glass-black border border-white/10 rounded-3xl p-8 md:p-12 mb-24 grid md:grid-cols-[200px_1fr] gap-10 items-center hover:border-regime-gold/30 transition-colors duration-500"
                 >
-                    <div style={{
-                        width: '200px',
-                        height: '200px',
-                        background: 'linear-gradient(135deg, #8b5cf6 0%, #d4af37 100%)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        position: 'relative'
-                    }}>
-                        <Music2 size={80} color="#000" strokeWidth={1.5} />
+                    <div className="w-full md:w-[200px] h-[200px] bg-gradient-to-br from-spirit-purple to-regime-gold rounded-full flex items-center justify-center relative shadow-lg shadow-regime-gold/20 animate-pulse-slow">
+                        <Music2 size={80} className="text-black/80" strokeWidth={1.5} />
                     </div>
 
-                    <div>
-                        <h3 style={{
-                            fontSize: 'clamp(1.8rem, 3vw, 3rem)',
-                            marginBottom: '15px',
-                            fontWeight: 900
-                        }}>
-                            Bantu Kindoki (Original Sound)
+                    <div className="text-center md:text-left">
+                        <h3 className="text-3xl md:text-5xl font-bold font-cinzel mb-4 text-white">
+                            Bantu Kindoki <span className="text-regime-gold text-2xl block md:inline md:text-4xl font-light font-cormorant">(Original Sound)</span>
                         </h3>
-                        <p style={{ color: 'var(--text-muted)', marginBottom: '30px', fontSize: '1.1rem' }}>
+                        <p className="text-gray-400 mb-8 text-lg font-light tracking-wide">
                             Original Sound - Kweffa3
                         </p>
 
                         <motion.button
-                            whileHover={{ scale: 1.05, backgroundColor: 'var(--accent-gold)' }}
+                            whileHover={{ scale: 1.05, backgroundColor: "#C6A87C", color: "#000" }}
                             whileTap={{ scale: 0.95 }}
-                            style={{
-                                background: 'transparent',
-                                border: '1px solid var(--accent-gold)',
-                                color: 'var(--accent-gold)',
-                                padding: '15px 35px',
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                gap: '10px',
-                                fontSize: '0.9rem',
-                                fontWeight: 600,
-                                letterSpacing: '2px',
-                                textTransform: 'uppercase'
-                            }}
+                            className="bg-transparent border border-regime-gold text-regime-gold px-10 py-4 flex items-center gap-3 text-sm font-bold tracking-widest uppercase rounded-full transition-all duration-300 mx-auto md:mx-0"
                         >
                             <Play size={18} fill="currentColor" /> Listen Now
                         </motion.button>
@@ -142,36 +100,18 @@ const Media = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    style={{ marginBottom: '60px' }}
+                    className="mb-12 flex items-center gap-4"
                 >
-                    <h3 style={{
-                        fontSize: '2rem',
-                        fontWeight: 900,
-                        marginBottom: '30px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '15px'
-                    }}>
+                    <h3 className="text-3xl font-bold font-cinzel text-white flex items-center gap-4">
                         Latest from TikTok
-                        <span style={{
-                            fontSize: '0.8rem',
-                            background: 'var(--accent-purple)',
-                            padding: '5px 12px',
-                            borderRadius: '20px',
-                            fontWeight: 600
-                        }}>
+                        <span className="text-xs bg-spirit-purple text-white px-3 py-1 rounded-full font-bold tracking-wider">
                             @kweffa3
                         </span>
                     </h3>
                 </motion.div>
 
                 {/* Video Grid - Real TikTok Videos */}
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-                    gap: '20px',
-                    gridAutoRows: '250px'
-                }}>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-[300px]">
                     {tiktokVideos.map((video, idx) => (
                         <motion.a
                             key={video.id}
@@ -183,117 +123,44 @@ const Media = () => {
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             viewport={{ once: true }}
                             whileHover={{ y: -5 }}
-                            style={{
-                                background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(0,0,0,0.8))',
-                                border: '1px solid rgba(139, 92, 246, 0.3)',
-                                position: 'relative',
-                                overflow: 'hidden',
-                                cursor: 'pointer',
-                                gridRow: idx === 0 ? 'span 2' : 'span 1',
-                                textDecoration: 'none',
-                                color: 'inherit'
-                            }}
+                            className={`group relative overflow-hidden rounded-2xl border border-white/10 hover:border-regime-gold/50 transition-all duration-300 ${idx === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}
                         >
+                            {/* Background Gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-spirit-purple/20 to-black/90 z-0"></div>
+
                             {/* Pinned Badge */}
                             {video.isPinned && (
-                                <div style={{
-                                    position: 'absolute',
-                                    top: '15px',
-                                    right: '15px',
-                                    background: 'var(--accent-gold)',
-                                    color: '#000',
-                                    padding: '5px 12px',
-                                    fontSize: '0.7rem',
-                                    fontWeight: 700,
-                                    borderRadius: '3px',
-                                    zIndex: 2,
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '1px'
-                                }}>
+                                <div className="absolute top-4 right-4 bg-regime-gold text-black px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-sm z-20">
                                     Pinned
                                 </div>
                             )}
 
                             {/* Recent Badge */}
                             {video.isRecent && (
-                                <div style={{
-                                    position: 'absolute',
-                                    top: '15px',
-                                    right: '15px',
-                                    background: 'var(--accent-neon)',
-                                    color: '#fff',
-                                    padding: '5px 12px',
-                                    fontSize: '0.7rem',
-                                    fontWeight: 700,
-                                    borderRadius: '3px',
-                                    zIndex: 2,
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '1px'
-                                }}>
+                                <div className="absolute top-4 right-4 bg-green-500 text-black px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-sm z-20">
                                     New
                                 </div>
                             )}
 
-                            <div style={{
-                                position: 'absolute',
-                                inset: 0,
-                                background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 60%)',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                justifyContent: 'flex-end',
-                                padding: '25px'
-                            }}>
-                                <h4 style={{ fontSize: '1.2rem', marginBottom: '8px', fontWeight: 700 }}>
+                            <div className="absolute inset-0 flex flex-col justify-end p-6 z-10 bg-gradient-to-t from-black via-black/50 to-transparent">
+                                <h4 className={`font-bold font-cinzel leading-tight mb-2 text-white group-hover:text-regime-gold transition-colors ${idx === 0 ? 'text-3xl' : 'text-xl'}`}>
                                     {video.title}
                                 </h4>
-                                <p style={{
-                                    fontSize: '0.85rem',
-                                    color: 'var(--text-muted)',
-                                    marginBottom: '12px',
-                                    lineHeight: 1.4,
-                                    overflow: 'hidden',
-                                    textOverflow: 'ellipsis',
-                                    display: '-webkit-box',
-                                    WebkitLineClamp: 2,
-                                    WebkitBoxOrient: 'vertical'
-                                }}>
+                                <p className="text-sm text-gray-400 mb-3 line-clamp-2 font-light">
                                     {video.caption}
                                 </p>
-                                <div style={{
-                                    display: 'flex',
-                                    gap: '15px',
-                                    fontSize: '0.85rem',
-                                    color: 'var(--text-muted)',
-                                    alignItems: 'center'
-                                }}>
+                                <div className="flex gap-4 text-xs text-gray-500 items-center">
                                     <span>{video.views} views</span>
-                                    <ExternalLink size={14} />
+                                    <ExternalLink size={12} />
                                 </div>
                             </div>
 
-                            <motion.div
-                                whileHover={{ opacity: 1 }}
-                                style={{
-                                    position: 'absolute',
-                                    top: '50%',
-                                    left: '50%',
-                                    transform: 'translate(-50%, -50%)',
-                                    opacity: 0,
-                                    transition: 'opacity 0.3s'
-                                }}
-                            >
-                                <div style={{
-                                    background: 'var(--accent-gold)',
-                                    borderRadius: '50%',
-                                    width: '60px',
-                                    height: '60px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}>
-                                    <Play size={30} fill="#000" color="#000" />
+                            {/* Play Button Overlay */}
+                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-sm z-20">
+                                <div className="w-16 h-16 bg-regime-gold rounded-full flex items-center justify-center shadow-glow-gold scale-0 group-hover:scale-100 transition-transform duration-300">
+                                    <Play size={32} fill="#000" className="text-black ml-1" />
                                 </div>
-                            </motion.div>
+                            </div>
                         </motion.a>
                     ))}
                 </div>
@@ -304,18 +171,12 @@ const Media = () => {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    style={{
-                        marginTop: '80px',
-                        textAlign: 'center',
-                        padding: '60px',
-                        border: '1px solid rgba(139, 92, 246, 0.2)',
-                        background: 'rgba(139, 92, 246, 0.03)'
-                    }}
+                    className="mt-20 text-center p-12 border border-spirit-purple/20 bg-spirit-purple/5 rounded-3xl"
                 >
-                    <h3 style={{ fontSize: '2rem', marginBottom: '20px', fontWeight: 900 }}>
+                    <h3 className="text-3xl font-cinzel font-bold mb-4 text-white">
                         Follow the Movement
                     </h3>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '30px', fontSize: '1.1rem' }}>
+                    <p className="text-gray-400 mb-8 max-w-lg mx-auto">
                         Join @kweffa3 on TikTok for daily teachings and content
                     </p>
                     <motion.a
@@ -324,32 +185,12 @@ const Media = () => {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '10px',
-                            padding: '18px 40px',
-                            background: 'var(--accent-purple)',
-                            color: '#fff',
-                            fontSize: '0.9rem',
-                            fontWeight: 600,
-                            letterSpacing: '2px',
-                            textTransform: 'uppercase'
-                        }}
+                        className="inline-flex items-center gap-3 px-8 py-4 bg-spirit-purple text-white text-sm font-bold tracking-widest uppercase rounded-full hover:bg-spirit-purple/80 transition-colors"
                     >
                         View on TikTok <ExternalLink size={18} />
                     </motion.a>
                 </motion.div>
             </div>
-
-            {/* Responsive Styles */}
-            <style>{`
-        @media (max-width: 768px) {
-          section#media > div > div:nth-child(2) {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
         </section>
     );
 };
