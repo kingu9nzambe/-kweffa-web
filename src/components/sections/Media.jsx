@@ -146,10 +146,10 @@ const Media = () => {
                                 <h4 className={`font-bold font-cinzel leading-tight mb-2 text-white group-hover:text-regime-gold transition-colors ${idx === 0 ? 'text-3xl' : 'text-xl'}`}>
                                     {video.title}
                                 </h4>
-                                <p className="text-sm text-gray-300 mb-3 line-clamp-2 font-light">
+                                <p className="text-sm text-gray-200 mb-3 line-clamp-2 font-light">
                                     {video.caption}
                                 </p>
-                                <div className="flex gap-4 text-xs text-gray-400 items-center">
+                                <div className="flex gap-4 text-xs text-white/60 items-center">
                                     <span>{video.views} views</span>
                                     <ExternalLink size={12} />
                                 </div>

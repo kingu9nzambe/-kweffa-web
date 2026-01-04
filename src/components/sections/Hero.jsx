@@ -85,7 +85,7 @@ const Hero = () => {
                 </p>
             </div>
             <div className="absolute bottom-10 right-10 hidden md:block z-20">
-                <p className="text-xs text-gray-500 font-mono tracking-widest">
+                <p className="text-xs text-white/50 font-mono tracking-widest">
                     SCROLL TO ENTER
                 </p>
             </div>

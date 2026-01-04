@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShoppingBag, Star, Shield, Droplets, Leaf, Heart, Sun } from 'lucide-react';
+import { ShoppingBag, Star, Shield, Droplets, Leaf, Heart, Sun, ArrowRight } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 const kalungaProducts = [
@@ -80,42 +80,48 @@ const ProductCard = ({ product, index, addToCart }) => (
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: index * 0.2 }}
+        transition={{ duration: 0.6, delay: index * 0.1 }}
         className="group relative h-full"
     >
-        <div className={`h-full glass-panel p-1 rounded-2xl overflow-hidden transition-all duration-500 group-hover:border-opacity-50 border border-white/5`}>
-            <div className={`relative h-full bg-gradient-to-b ${product.color} p-8 flex flex-col items-center text-center rounded-xl`}>
+        {/* Card Container - Glass & Gold */}
+        <div className="h-full bg-glass-black border border-white/10 rounded-sm overflow-hidden transition-all duration-500 group-hover:border-regime-gold/50 relative flex flex-col">
 
-                <div className={`w-24 h-24 rounded-full border-2 ${product.accent} flex items-center justify-center mb-8 bg-black/50 backdrop-blur-xl shadow-[0_0_30px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform duration-500`}>
-                    {product.icon}
+            {/* Image/Icon Area */}
+            <div className={`relative h-64 bg-gradient-to-b ${product.color} flex items-center justify-center overflow-hidden`}>
+                <div className="absolute inset-0 opacity-20 bg-[url('/noise.png')] mix-blend-overlay"></div>
+
+                {/* Icon Halo */}
+                <div className={`w-32 h-32 rounded-full border border-white/10 flex items-center justify-center bg-black/40 backdrop-blur-md shadow-2xl group-hover:scale-110 transition-transform duration-700`}>
+                    <div className="relative z-10">{product.icon}</div>
+                    <div className={`absolute inset-0 rounded-full border ${product.accent} opacity-50 animate-pulse-slow`}></div>
+                </div>
+            </div>
+
+            {/* Content Area */}
+            <div className="p-8 flex flex-col flex-grow relative">
+                <div className="mb-4">
+                    <span className="text-[10px] font-bold tracking-[0.3em] text-regime-gold/80 uppercase block mb-2">
+                        {product.line}
+                    </span>
+                    <h3 className="text-2xl font-cinzel font-bold text-white group-hover:text-regime-gold transition-colors duration-300">
+                        {product.name}
+                    </h3>
                 </div>
 
-                <div className="text-xs font-bold tracking-[0.3em] text-regime-gold/70 mb-2 uppercase break-words w-full">
-                    {product.line}
-                </div>
-
-                <h3 className="text-2xl font-cinzel font-bold mb-4 leading-none">
-                    {product.name}
-                </h3>
-
-                <p className="text-white/80 mb-8 font-light text-sm leading-relaxed flex-grow">
+                <p className="text-gray-300 font-light text-sm leading-relaxed mb-8 flex-grow">
                     {product.description}
                 </p>
 
-                <div className="w-full mt-auto">
-                    <div className="flex items-center justify-between mb-6 px-4">
-                        <span className="text-2xl font-cormorant italic text-regime-gold">
-                            ${product.price.toFixed(2)}
-                        </span>
-                        <div className="h-px bg-white/10 flex-grow mx-4"></div>
-                    </div>
+                <div className="mt-auto border-t border-white/5 pt-6 flex items-center justify-between">
+                    <span className="text-2xl font-cormorant italic text-white/90">
+                        ${product.price.toFixed(2)}
+                    </span>
 
                     <button
                         onClick={() => addToCart(product)}
-                        className="w-full py-4 bg-white/5 hover:bg-regime-gold hover:text-black border border-white/10 hover:border-regime-gold transition-all duration-300 font-bold tracking-widest text-xs uppercase flex items-center justify-center gap-2 group-hover:shadow-[0_0_20px_rgba(198,168,124,0.2)]"
+                        className="group/btn flex items-center gap-2 px-6 py-3 bg-white/5 hover:bg-regime-gold text-white hover:text-black text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 border border-white/10 hover:border-regime-gold"
                     >
-                        <ShoppingBag size={16} />
-                        Acquire
+                        Acquire <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
                     </button>
                 </div>
             </div>
@@ -127,64 +133,57 @@ const ProductsPage = () => {
     const { addToCart } = useCart();
 
     return (
-        <div className="pt-32 min-h-screen bg-void-black text-bone-white px-6 pb-20 overflow-hidden">
-            <div className="fixed inset-0 pointer-events-none noise-overlay"></div>
-
-            {/* Header */}
-            <div className="max-w-7xl mx-auto text-center mb-20 relative z-10">
+        <div className="pt-32 min-h-screen bg-void-black text-white px-6 pb-32">
+            {/* Hero Section */}
+            <div className="container mx-auto text-center mb-24 relative">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1 }}
+                    className="relative z-10"
                 >
-                    <h2 className="text-regime-gold text-lg tracking-[0.5em] mb-4 uppercase">Sacred Provisions</h2>
-                    <h1 className="text-6xl md:text-8xl font-black font-cinzel tracking-tighter mb-6">
+                    <h2 className="text-regime-gold text-xs font-bold tracking-[0.5em] uppercase mb-4">
+                        Sacred Provisions
+                    </h2>
+                    <h1 className="text-6xl md:text-9xl font-black font-cinzel text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600 mb-8 tracking-tighter">
                         ARTIFACTS
                     </h1>
-                    <p className="max-w-2xl mx-auto text-white/80 text-lg font-light leading-relaxed">
-                        Tools for ritual, healing, and command.
+                    <p className="max-w-xl mx-auto text-gray-300 font-light text-lg tracking-wide">
+                        Tools for ritual, healing, and command. <br />
+                        <span className="text-regime-gold/80 text-sm uppercase tracking-widest mt-2 block">Handcrafted in the Regime</span>
                     </p>
                 </motion.div>
             </div>
 
-            {/* Kalunga Clean Section */}
-            <div className="max-w-7xl mx-auto mb-32 relative z-10">
-                <div className="flex items-center gap-4 mb-12">
-                    <div className="h-px bg-white/10 flex-grow"></div>
-                    <h2 className="text-2xl font-cinzel text-regime-gold tracking-widest text-center">KALUNGA CLEAN</h2>
-                    <div className="h-px bg-white/10 flex-grow"></div>
+            {/* Kalunga Clean Collection */}
+            <div className="container mx-auto mb-32">
+                <div className="flex items-end justify-between mb-12 border-b border-white/10 pb-6">
+                    <div>
+                        <h2 className="text-3xl font-cinzel text-white mb-2">Kalunga Clean</h2>
+                        <p className="text-sm text-gray-400 font-mono tracking-widest">SERIES 001 • PURIFICATION</p>
+                    </div>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {kalungaProducts.map((product, index) => (
                         <ProductCard key={product.id} product={product} index={index} addToCart={addToCart} />
                     ))}
                 </div>
             </div>
 
-            {/* Daughter of Cosmic Mothers Section */}
-            <div className="max-w-7xl mx-auto relative z-10">
-                <div className="flex items-center gap-4 mb-12">
-                    <div className="h-px bg-white/10 flex-grow"></div>
-                    <h2 className="text-2xl font-cinzel text-purple-300 tracking-widest text-center uppercase">Daughter of the Cosmic Mothers</h2>
-                    <div className="h-px bg-white/10 flex-grow"></div>
+            {/* Cosmic Mothers Collection */}
+            <div className="container mx-auto">
+                <div className="flex items-end justify-between mb-12 border-b border-white/10 pb-6">
+                    <div>
+                        <h2 className="text-3xl font-cinzel text-white mb-2">Daughter of the Cosmic Mothers</h2>
+                        <p className="text-sm text-gray-400 font-mono tracking-widest">SERIES 002 • HEALING</p>
+                    </div>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {cosmicProducts.map((product, index) => (
                         <ProductCard key={product.id} product={product} index={index + 3} addToCart={addToCart} />
                     ))}
                 </div>
             </div>
-
-            {/* Bottom Note */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                className="text-center mt-32 text-white/40 text-xs tracking-widest uppercase"
-            >
-                Handcrafted in Limited Batches within the Regime
-            </motion.div>
         </div>
     );
 };

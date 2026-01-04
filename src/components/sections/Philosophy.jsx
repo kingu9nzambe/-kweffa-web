@@ -70,7 +70,7 @@ const Philosophy = () => {
                                     {principle.number}
                                 </motion.div>
                                 <motion.h3
-                                    className={`text-4xl md:text-6xl font-black font-cinzel mb-8 text-transparent bg-clip-text bg-gradient-to-r ${idx % 2 === 0 ? 'from-white to-gray-500' : 'from-gray-500 to-white'
+                                    className={`text-4xl md:text-6xl font-black font-cinzel mb-8 text-transparent bg-clip-text bg-gradient-to-r ${idx % 2 === 0 ? 'from-white to-gray-300' : 'from-gray-300 to-white'
                                         }`}
                                 >
                                     {principle.title}
