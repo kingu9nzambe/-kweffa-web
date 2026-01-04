@@ -44,7 +44,7 @@ const HomePage = () => {
                             <h2 className="text-4xl md:text-7xl font-cinzel text-white mb-6">
                                 The <span className="text-transparent bg-clip-text bg-gold-gradient">Offerings</span>
                             </h2>
-                            <p className="text-gray-400 font-light tracking-wide max-w-2xl mx-auto">
+                            <p className="text-white/80 font-light tracking-wide max-w-2xl mx-auto">
                                 Ancient pathways for the modern spirit. Choose your vector of ascension.
                             </p>
                         </motion.div>
@@ -60,7 +60,7 @@ const HomePage = () => {
                                             <ArrowUpRight className="text-gray-500 group-hover:text-regime-gold group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
                                         </div>
                                         <h3 className="text-4xl font-cinzel text-white mb-4 group-hover:translate-x-2 transition-transform duration-500">Divination</h3>
-                                        <p className="text-gray-400 font-light leading-relaxed max-w-sm group-hover:text-gray-300 transition-colors">
+                                        <p className="text-gray-200 font-light leading-relaxed max-w-sm group-hover:text-white transition-colors">
                                             Access the timeless wisdom of the Bantu ancestors. Unveil the map of your destiny through sacred reading.
                                         </p>
                                     </div>
@@ -81,7 +81,7 @@ const HomePage = () => {
                                     </div>
                                     <div className="mt-8">
                                         <h3 className="text-3xl font-cinzel text-white mb-4 group-hover:translate-x-2 transition-transform duration-500">Healing</h3>
-                                        <p className="text-gray-400 text-sm font-light mb-8">
+                                        <p className="text-gray-200 text-sm font-light mb-8">
                                             Restore harmony with Kindoki spiritual practices.
                                         </p>
                                         <div className="w-full h-32 bg-leaf-green/10 rounded-xl relative overflow-hidden">
@@ -97,7 +97,7 @@ const HomePage = () => {
                                 <div className="p-8 h-full flex flex-col justify-between relative z-10">
                                     <h3 className="text-2xl font-cinzel text-white group-hover:text-regime-gold transition-colors">Initiations</h3>
                                     <div className="flex justify-end">
-                                        <span className="text-xs text-gray-500 group-hover:text-white transition-colors uppercase tracking-widest">Step In</span>
+                                        <span className="text-xs text-white/70 group-hover:text-white transition-colors uppercase tracking-widest">Step In</span>
                                     </div>
                                 </div>
                             </Link>
