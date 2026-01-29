@@ -12,7 +12,7 @@ export const albums = [
         tracks: [
             {
                 id: 1,
-                title: "Bumba",
+                title: "Mbumba",
                 duration: "3:42",
                 audioUrl: "/audio/bumba.m4a",
                 price: 1
@@ -22,72 +22,6 @@ export const albums = [
                 title: "Mvita Nzila Kongo",
                 duration: "5:38",
                 audioUrl: "/audio/mvita.mp3",
-                price: 1.5
-            }
-        ]
-    },
-    {
-        id: 2,
-        title: "Decolonizing Sound",
-        artist: "Kweffa3",
-        artwork: null, // Will use gradient
-        price: 10,
-        releaseDate: "2023",
-        description: "An artistic statement on reclaiming African sonic identity. Raw, unfiltered truth set to revolutionary beats.",
-        credits: "All tracks written, produced, and performed by Kweffa3",
-        tracks: [
-            {
-                id: 6,
-                title: "Awakening",
-                duration: "2:56",
-                audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
-                price: 1
-            },
-            {
-                id: 7,
-                title: "Breaking Chains",
-                duration: "4:23",
-                audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
-                price: 1.5
-            },
-            {
-                id: 8,
-                title: "Ancestral Memory",
-                duration: "3:47",
-                audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
-                price: 1.5
-            }
-        ]
-    },
-    {
-        id: 3,
-        title: "Ngombongola Sessions",
-        artist: "Kweffa3",
-        artwork: null, // Will use gradient
-        price: 8,
-        releaseDate: "2024",
-        description: "Live studio recordings capturing the raw energy of the Regime. Unpolished, authentic, powerful.",
-        credits: "Recorded live at Ngombongola Studios, Kingston",
-        tracks: [
-            {
-                id: 9,
-                title: "Session 1: The Calling",
-                duration: "6:12",
-                audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
-                price: 1.5
-            },
-            {
-                id: 10,
-                title: "Session 2: Freestyle Riddim",
-                duration: "4:45",
-                audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
-                price: 1.5
-            },
-            {
-                id: 11,
-                title: "Session 3: Obeah Chant",
-                duration: "5:33",
-                audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3",
                 price: 1.5
             }
         ]

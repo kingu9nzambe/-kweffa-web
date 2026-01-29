@@ -11,7 +11,7 @@ const MusicPage = () => {
         album.tracks.map(track => ({
             ...track,
             albumTitle: album.title,
-            albumArt: album.coverArt
+            albumArt: album.artwork
         }))
     );
 
@@ -65,8 +65,8 @@ const MusicPage = () => {
                             className="group relative"
                         >
                             <div className="aspect-square relative overflow-hidden rounded-sm mb-6 shadow-2xl">
-                                {album.coverArt ? (
-                                    <img src={album.coverArt} alt={album.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                                {album.artwork ? (
+                                    <img src={album.artwork} alt={album.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                                 ) : (
                                     <div className="w-full h-full bg-white/5 flex items-center justify-center">
                                         <div className="text-8xl opacity-20">💿</div>
