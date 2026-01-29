@@ -213,9 +213,6 @@ const ProductsPage = () => {
                 </motion.div>
             </div>
 
-            {/* Book Section - HIGHLIGHTED FIRST */}
-            <BookSection addToCart={addToCart} />
-
             {/* Kalunga Clean Collection */}
             <div className="container mx-auto mb-32 opacity-60">
                 <div className="flex items-end justify-between mb-12 border-b border-white/10 pb-6">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useCart } from '../context/CartContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpen, Palette, Film, Lock } from 'lucide-react';
 
@@ -10,6 +11,7 @@ const subsections = [
 
 const NguzuMetutuPage = () => {
     const [activeTab, setActiveTab] = useState('arts');
+    const { addToCart } = useCart();
 
     return (
         <div className="pt-32 min-h-screen bg-void-black text-bone-white px-6 pb-20 overflow-hidden relative">
@@ -95,18 +97,55 @@ const NguzuMetutuPage = () => {
                             className="grid grid-cols-1 md:grid-cols-2 gap-12"
                         >
                             <div className="glass-panel p-8 flex flex-col md:flex-row gap-8 items-center border-l-4 border-regime-gold">
+                                <div className="w-full md:w-32 h-48 bg-white/5 border border-white/20 shadow-2xl flex flex-col items-center justify-center shrink-0 group hover:border-regime-gold/50 transition-colors">
+                                    <BookOpen className="text-regime-gold mb-2" size={32} />
+                                    <span className="text-[10px] font-cinzel text-regime-gold font-bold tracking-widest text-center">FORBIDDEN<br />TEXT</span>
+                                </div>
+                                <div>
+                                    <h3 className="text-3xl font-cinzel mb-2">The Obeah Woman's Rebellion</h3>
+                                    <p className="text-regime-gold text-sm tracking-widest mb-4">PART 1: FORBIDDEN KNOWLEDGE</p>
+                                    <p className="text-white/60 leading-relaxed mb-6">
+                                        Part one of the edition series: Forbidden Knowledge and the Fall of a Bantu Kongo Empire. A primary text for the Ngyanuba Nation using the narrative of the past to reconstruct the future.
+                                    </p>
+                                    <button
+                                        onClick={() => addToCart({ id: 'book-1', name: "The Obeah Woman's Rebellion", price: 20, type: 'product' })}
+                                        className="px-6 py-3 bg-regime-gold text-black hover:bg-white transition-all text-xs font-bold uppercase tracking-widest"
+                                    >
+                                        Acquire Knowledge ($20)
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="glass-panel p-8 flex flex-col md:flex-row gap-8 items-center border-l-4 border-spirit-purple/50">
+                                <div className="w-full md:w-32 h-48 bg-spirit-purple/10 border border-white/10 flex flex-col items-center justify-center shrink-0">
+                                    <span className="text-[10px] font-cinzel text-spirit-purple font-bold tracking-widest text-center">FREE<br />DOWNLOAD</span>
+                                </div>
+                                <div>
+                                    <h3 className="text-3xl font-cinzel mb-2">The Obeah Act</h3>
+                                    <p className="text-spirit-purple text-sm tracking-widest mb-4">LEGISLATION & MANIFESTO</p>
+                                    <p className="text-white/60 leading-relaxed mb-6">
+                                        A foundational document for the movement. Understand the laws that govern the spirit and the rebellion against suppression.
+                                    </p>
+                                    <a
+                                        href="/downloads/The Obeah Act.pdf"
+                                        download
+                                        className="inline-block px-6 py-3 border border-white/20 hover:bg-spirit-purple hover:text-white hover:border-spirit-purple transition-all text-xs font-bold uppercase tracking-widest"
+                                    >
+                                        Download PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div className="glass-panel p-8 flex flex-col md:flex-row gap-8 items-center opacity-50">
                                 <div className="w-32 h-48 bg-black border border-white/20 shadow-2xl flex items-center justify-center shrink-0">
                                     <BookOpen className="text-white/20" size={40} />
                                 </div>
                                 <div>
                                     <h3 className="text-3xl font-cinzel mb-2">The Map Older Than Time</h3>
-                                    <p className="text-regime-gold text-sm tracking-widest mb-4">FOUNDATIONAL TEXT</p>
+                                    <p className="text-regime-gold text-sm tracking-widest mb-4">COMING SOON</p>
                                     <p className="text-white/60 leading-relaxed mb-6">
                                         The core philosophy of the Ngombongola Regime. Understanding the cartography of the spirit before the imposition of colonial time.
                                     </p>
-                                    <button className="px-6 py-3 border border-white/20 hover:bg-white/10 hover:border-regime-gold transition-all text-xs font-bold uppercase tracking-widest">
-                                        Read Extract
-                                    </button>
                                 </div>
                             </div>
 
