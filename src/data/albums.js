@@ -1,6 +1,3 @@
-import bumbaAudio from '../assets/Kweffa - bumba.m4a';
-import mvitaAudio from '../assets/mvita nzila kongo - Kweffa dec 28 2024.mp3';
-
 // Mock album and track data
 export const albums = [
     {
@@ -17,14 +14,14 @@ export const albums = [
                 id: 1,
                 title: "Bumba",
                 duration: "3:42",
-                audioUrl: bumbaAudio,
+                audioUrl: "/audio/bumba.m4a",
                 price: 1
             },
             {
                 id: 2,
                 title: "Mvita Nzila Kongo",
                 duration: "5:38",
-                audioUrl: mvitaAudio,
+                audioUrl: "/audio/mvita.mp3",
                 price: 1.5
             }
         ]

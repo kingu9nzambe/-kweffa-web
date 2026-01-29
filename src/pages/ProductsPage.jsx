@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShoppingBag, Star, Shield, Droplets, Leaf, Heart, Sun, ArrowRight } from 'lucide-react';
+import { ShoppingBag, Star, Shield, Droplets, Leaf, Heart, Sun, ArrowRight, BookOpen } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 const kalungaProducts = [
@@ -144,8 +144,9 @@ const BookSection = ({ addToCart }) => (
                 whileInView={{ opacity: 1, x: 0 }}
                 className="bg-glass-black border border-regime-gold/20 p-8 rounded-sm flex flex-col md:flex-row gap-8 items-center"
             >
-                <div className="w-full md:w-48 aspect-[3/4] bg-white/5 border border-white/10 flex items-center justify-center text-center p-4">
-                    <span className="text-xs font-cinzel text-regime-gold opacity-50">FORBIDDEN KNOWLEDGE SERIES</span>
+                <div className="w-full md:w-48 aspect-[3/4] bg-white/5 border border-white/10 flex flex-col items-center justify-center text-center p-4 group-hover:border-regime-gold/50 transition-colors">
+                    <BookOpen size={48} className="text-regime-gold mb-4 opacity-80" strokeWidth={1} />
+                    <span className="text-xs font-cinzel text-regime-gold font-bold tracking-widest">FORBIDDEN TEXT</span>
                 </div>
                 <div className="flex-grow flex flex-col">
                     <span className="text-[10px] font-bold tracking-[0.3em] text-regime-gold/80 uppercase mb-2">Primary Text</span>

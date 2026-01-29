@@ -6,10 +6,18 @@ const ServicesPage = () => {
     const services = [
         {
             icon: Eye,
-            title: "Ngombo Divination",
-            subtitle: "Sacred Spiritual Consultation",
-            description: "Consult the sacred Ngombo artifacts to reveal the hidden currents of your existence. A profound session blending spiritual discernment with the ancient wisdom of the Kongo lineage.",
-            features: ["Spiritual Discernment", "Ancestral Guidance", "Path Clarification"]
+            title: "Ngombo Consultation",
+            subtitle: "Sacred Spiritual Diagnosis",
+            description: "A profound diagnostic session blending Ngombo artifacts and ancestral wisdom. Available In-Person or Online.",
+            pricing: [
+                { label: "Basic", price: "$30" },
+                { label: "Standard", price: "$60" },
+                { label: "Advanced", price: "$90" },
+                { label: "Full Reading", price: "$120" }
+            ],
+            custom: "Custom Readings: $150 - $800",
+            ancestral: "Ancestral Roots: $250 - $650",
+            features: ["In-Person or Online", "Spiritual Diagnosis", "Path Correction"]
         },
         {
             icon: Eye,
@@ -115,13 +123,31 @@ const ServicesPage = () => {
 
                                 {/* Right: Features & Action */}
                                 <div className="md:w-1/4 flex flex-col items-start md:items-end gap-6">
-                                    <ul className="space-y-1 text-right hidden md:block">
-                                        {service.features.map((feature) => (
-                                            <li key={feature} className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300">
-                                                {feature}
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    {/* Pricing / Features Display */}
+                                    <div className="text-right hidden md:block">
+                                        {service.pricing ? (
+                                            <div className="space-y-2">
+                                                <div className="grid grid-cols-2 gap-x-4 gap-y-1 mb-2">
+                                                    {service.pricing.map((tier) => (
+                                                        <React.Fragment key={tier.label}>
+                                                            <span className="text-gray-400 text-xs uppercase tracking-wider">{tier.label}</span>
+                                                            <span className="text-regime-gold text-xs font-mono">{tier.price}</span>
+                                                        </React.Fragment>
+                                                    ))}
+                                                </div>
+                                                {service.custom && <p className="text-gray-500 text-[10px] italic">{service.custom}</p>}
+                                                {service.ancestral && <p className="text-spirit-purple text-[10px] font-bold uppercase">{service.ancestral}</p>}
+                                            </div>
+                                        ) : (
+                                            <ul className="space-y-1">
+                                                {service.features.map((feature) => (
+                                                    <li key={feature} className="text-sm text-gray-400 group-hover:text-white transition-colors duration-300">
+                                                        {feature}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </div>
                                     <button className="px-8 py-3 border border-white/20 rounded-full text-white text-sm tracking-widest hover:bg-regime-gold hover:text-black hover:border-regime-gold transition-all duration-300 transform group-hover:translate-x-2">
                                         INQUIRE
                                     </button>
