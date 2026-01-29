@@ -113,12 +113,8 @@ const MusicPage = () => {
 
                     <div className="divide-y divide-white/5">
                         {allTracks.map((track, index) => (
-                            <motion.div
+                            <div
                                 key={track.id}
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.05 }}
                                 className={`group grid grid-cols-[auto_1fr_auto] md:grid-cols-[auto_1fr_1fr_auto] gap-4 p-4 md:p-6 items-center hover:bg-white/5 transition-colors duration-300 cursor-pointer ${currentTrack?.id === track.id ? 'bg-regime-gold/10' : ''
                                     }`}
                                 onClick={() => handlePlayTrack(track)}
@@ -150,7 +146,7 @@ const MusicPage = () => {
                                 <div className="text-right font-mono text-xs text-gray-500">
                                     {track.duration}
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>
