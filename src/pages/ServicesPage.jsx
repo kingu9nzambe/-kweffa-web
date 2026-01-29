@@ -6,6 +6,13 @@ const ServicesPage = () => {
     const services = [
         {
             icon: Eye,
+            title: "Ngombo Divination",
+            subtitle: "Sacred Spiritual Consultation",
+            description: "Consult the sacred Ngombo artifacts to reveal the hidden currents of your existence. A profound session blending spiritual discernment with the ancient wisdom of the Kongo lineage.",
+            features: ["Spiritual Discernment", "Ancestral Guidance", "Path Clarification"]
+        },
+        {
+            icon: Eye,
             title: "Spiritual Consultations",
             subtitle: "Divination & Guidance",
             description: "Through the eyes of N'disu, we peer into the currents of destiny. Receive guidance from ancient Obeah traditions and Bantu Kindoki wisdom to navigate your path.",
