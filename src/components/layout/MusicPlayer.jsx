@@ -34,6 +34,7 @@ const MusicPlayer = () => {
         <motion.div
             initial={{ y: 100 }}
             animate={{ y: 0 }}
+            className="fixed-player-container"
             style={{
                 position: 'fixed',
                 bottom: 0,
@@ -49,13 +50,15 @@ const MusicPlayer = () => {
                 padding: '0 30px'
             }}
         >
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 2fr 1fr',
-                alignItems: 'center',
-                width: '100%',
-                gap: '20px'
-            }}>
+            <div
+                className="fixed-player-grid"
+                style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 2fr 1fr',
+                    alignItems: 'center',
+                    width: '100%',
+                    gap: '20px'
+                }}>
                 {/* Track Info */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                     <div style={{
@@ -143,7 +146,7 @@ const MusicPlayer = () => {
 
                     {/* Progress Bar */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', minWidth: '40px' }}>
+                        <span style={{ fontSize: '0.75rem', color: '#9ca3af', minWidth: '40px' }}>
                             {formatTime(currentTime)}
                         </span>
                         <div
@@ -164,11 +167,11 @@ const MusicPlayer = () => {
                             <div style={{
                                 width: `${progress}%`,
                                 height: '100%',
-                                background: 'var(--accent-gold)',
+                                background: '#D4AF37',
                                 transition: 'width 0.1s linear'
                             }} />
                         </div>
-                        <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', minWidth: '40px' }}>
+                        <span style={{ fontSize: '0.75rem', color: '#9ca3af', minWidth: '40px' }}>
                             {formatTime(duration)}
                         </span>
                     </div>
@@ -186,7 +189,7 @@ const MusicPlayer = () => {
                         onClick={() => setShowVolume(!showVolume)}
                         style={{
                             background: 'none',
-                            color: 'var(--text-primary)',
+                            color: 'white',
                             padding: '8px'
                         }}
                     >
@@ -203,7 +206,7 @@ const MusicPlayer = () => {
                             onChange={(e) => changeVolume(parseFloat(e.target.value))}
                             style={{
                                 width: '100px',
-                                accentColor: 'var(--accent-gold)'
+                                accentColor: '#D4AF37'
                             }}
                         />
                     )}
@@ -213,11 +216,11 @@ const MusicPlayer = () => {
             {/* Mobile Responsive Styles */}
             <style>{`
         @media (max-width: 768px) {
-          ${MusicPlayer.name} {
+          .fixed-player-container {
             height: 80px;
             padding: 0 15px;
           }
-          ${MusicPlayer.name} > div {
+          .fixed-player-grid {
             grid-template-columns: 1fr 1.5fr 0.5fr;
             gap: 10px;
           }

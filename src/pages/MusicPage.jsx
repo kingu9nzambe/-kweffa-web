@@ -5,7 +5,7 @@ import { useMusic } from '../context/MusicContext';
 import { albums } from '../data/albums';
 
 const MusicPage = () => {
-    const { playTrack, currentTrack, isPlaying, togglePlay } = useMusic();
+    const { playTrack, currentTrack, isPlaying, togglePlayPause } = useMusic();
 
     const allTracks = albums.flatMap(album =>
         album.tracks.map(track => ({
@@ -17,10 +17,10 @@ const MusicPage = () => {
 
     const handlePlayTrack = (track) => {
         if (currentTrack?.id === track.id) {
-            togglePlay();
+            togglePlayPause();
         } else {
-            const trackIndex = allTracks.findIndex(t => t.id === track.id);
-            playTrack(trackIndex);
+            // Pass the track object directly
+            playTrack(track);
         }
     };
 

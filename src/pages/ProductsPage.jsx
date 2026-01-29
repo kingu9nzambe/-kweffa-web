@@ -152,7 +152,7 @@ const BookSection = ({ addToCart }) => (
                     <h3 className="text-2xl font-cinzel font-bold text-white mb-4">THE OBEAH WOMAN'S REBELLION PART 1</h3>
                     <p className="text-gray-400 text-sm font-light mb-6">Part one of the edition series: Forbidden Knowledge and the Fall of a Bantu Kongo Empire.</p>
                     <button
-                        onClick={() => addToCart({ id: 'book-1', name: "The Obeah Woman's Rebellion", price: 20 })}
+                        onClick={() => addToCart({ id: 'book-1', name: "The Obeah Woman's Rebellion", price: 20, type: 'product' })}
                         className="mt-auto self-start px-8 py-3 bg-regime-gold text-black text-xs font-bold tracking-widest uppercase hover:bg-white transition-all duration-300"
                     >
                         Acquire Knowledge
@@ -174,7 +174,7 @@ const BookSection = ({ addToCart }) => (
                     <h3 className="text-2xl font-cinzel font-bold text-white mb-4">THE OBEAH ACT</h3>
                     <p className="text-gray-400 text-sm font-light mb-6">A foundational document for the movement. Available for free download.</p>
                     <a
-                        href="/src/assets/The Obeah Act.pdf"
+                        href="/downloads/The Obeah Act.pdf"
                         download
                         className="mt-auto self-start px-8 py-3 border border-white/20 text-white text-xs font-bold tracking-widest uppercase hover:bg-regime-gold hover:text-black transition-all duration-300"
                     >
